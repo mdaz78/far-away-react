@@ -5,7 +5,7 @@ const Item = ({ item, onDeleteItem, onCheckedToggle }) => {
     <li>
       <input
         type='checkbox'
-        value={item.packed}
+        checked={item.packed}
         onChange={() => onCheckedToggle(item.id)}
       />
       <span style={item.packed ? { textDecoration: 'line-through' } : {}}>
