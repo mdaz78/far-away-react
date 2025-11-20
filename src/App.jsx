@@ -14,10 +14,14 @@ const initialItems = [
 function App() {
   const [items, setItems] = useState(initialItems);
 
+  const handleAddItem = (item) => {
+    setItems((prevState) => [...prevState, item]);
+  };
+
   return (
     <div className='app'>
       <Logo />
-      <Form items={items} setItems={setItems} />
+      <Form handleAddItem={handleAddItem} />
       <PackingList items={items} />
       <Stats />
     </div>

@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 
-const Form = ({ items, setItems }) => {
+const Form = ({ handleAddItem }) => {
   const [description, setDescription] = useState('');
   const [quantity, setQuantity] = useState(1);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const newItem = { description, quantity, id: Date.now, packed: false };
+    const item = { description, quantity, id: Date.now(), packed: false };
 
-    setItems([...items, newItem]);
+    handleAddItem(item);
   };
 
   return (
