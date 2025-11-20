@@ -43,7 +43,7 @@ function App() {
         onDeleteItem={handleDeleteItem}
         onCheckedToggle={handleCheckedToggle}
       />
-      <Stats />
+      <Stats items={items} />
     </div>
   );
 }
