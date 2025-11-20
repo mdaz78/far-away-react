@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Form = ({ handleAddItem }) => {
+const Form = ({ onAddItem }) => {
   const [description, setDescription] = useState('');
   const [quantity, setQuantity] = useState(1);
 
@@ -8,7 +8,7 @@ const Form = ({ handleAddItem }) => {
     event.preventDefault();
     const item = { description, quantity, id: Date.now(), packed: false };
 
-    handleAddItem(item);
+    onAddItem(item);
   };
 
   return (

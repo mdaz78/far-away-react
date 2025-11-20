@@ -18,11 +18,31 @@ function App() {
     setItems((prevState) => [...prevState, item]);
   };
 
+  const handleDeleteItem = (id) => {
+    setItems((prevItems) => prevItems.filter((item) => item.id !== id));
+  };
+
+  const handleCheckedToggle = (id) => {
+    setItems((prevItems) =>
+      prevItems.map((item) => {
+        if (item.id === id) {
+          return { ...item, packed: !item.packed };
+        } else {
+          return item;
+        }
+      })
+    );
+  };
+
   return (
     <div className='app'>
       <Logo />
-      <Form handleAddItem={handleAddItem} />
-      <PackingList items={items} />
+      <Form onAddItem={handleAddItem} />
+      <PackingList
+        items={items}
+        onDeleteItem={handleDeleteItem}
+        onCheckedToggle={handleCheckedToggle}
+      />
       <Stats />
     </div>
   );
